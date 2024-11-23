@@ -1,19 +1,20 @@
-import {DataTypes} from 'sequelize'
+import {DataTypes, STRING} from 'sequelize'
 import db from '../config/db.js'
-const user = db.define ('users', {
+const Usuario=db.define('usuarios',{
     nombre: {
-        type: DataTypes.STRING,
-        allouwNull: false
+        type:DataTypes,STRING,
+        allowNull:false
     },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false
+    email:{
+        type:DataTypes.STRING,
+        allowNull_:false
     },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false
+    password:{
+        type:DataTypes.STRING,
+        allowNull_:false
     },
-    token: DataTypes.STRING,
-    confirm: DataTypes.BOOLEAN
-}) 
-export default user;
+    token:DataTypes.STRING,
+    confirmado: DataTypes.BOOLEAN
+})
+
+export default Usuario

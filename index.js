@@ -5,6 +5,15 @@ import db from './config/db.js'
 
 const app = express();
 
+//Conexión a la base de datos
+try{
+    await db.authenticate();
+    console.log('Conexión Correcta a la Base de Datos')
+  }catch(error){
+    console.log(error)
+  }
+  
+
 // Configurar Pug como motor de plantillas
 app.set('view engine', 'pug');
 app.set('views', './views');

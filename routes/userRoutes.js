@@ -1,5 +1,7 @@
+import userController from '../controllers/userController.js';
+
 import express from 'express';
-import { formLogin, formPasswordRecovery, create, formCreateAccount} from '../controllers/userControllers.js';
+import { formularioLogin, formularioRegister, formularioPasswordRecovery, registrar } from '../controllers/userController.js';
 
 const router =  express.Router();
 
@@ -44,6 +46,7 @@ router.get("/login", formLogin)
 router.get("/createAccount", create)
 router.post("/createAccount", create)
 router.get("/passwordRecovery",formPasswordRecovery)
+router.post("/createAccount",formularioRegister)
 
 
 export default router;

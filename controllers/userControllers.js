@@ -1,29 +1,28 @@
-import user from "../models/user.js";
-const formLogin = (req, res) =>{
+const formularioLogin=(req,res)=>{
     res.render('auth/login',{
-        page : "Iniciar sesion"
+        //con la coma decimos que hay un segundo parámetro
+        autenticado:true,
+        page: "Ingresa a la Plataforma"
     })
 };
 
-const formCreateAccount = (req, res) =>{
-    res.render('auth/createAccount',{
-        page : "Crear una cuenta"
+const formularioRegister=(request,response)=>{
+    response.render('auth/register',{
+        page: "Crea una Nueva Cuenta..."
     })
 };
 
-const create = async(req, res) => {
-    const user = await user.create(req.body);
-    res.json(user);
+const formularioPasswordRecovery = (request,response)=>{
+    response.render('auth/passwordRecovery',{
+        page: "Recuperación de Contraseña"
+    })
 }
-const formPasswordRecovery = (req, res) =>{
-    res.render('auth/passwordRecovery',{
-        page : "Recupera tu contraseña"
-    })
-};
 
-export {
-    formLogin,
-    formCreateAccount,
-    formPasswordRecovery,
-    create
+const registrar=(req,res)=>{
+    console.log('Registrando..')
 }
+
+export {formularioLogin,formularioRegister,formularioPasswordRecovery,registrar}
+
+
+
