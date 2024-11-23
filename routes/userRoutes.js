@@ -49,5 +49,6 @@ router.post("/createAccount", create)
 router.get("/passwordRecovery",formPasswordRecovery)
 router.post("/createAccount",formularioRegister)
 router.post("/createAccount",createNewUser)
+router.get('/confirm/:token',confirm )
 
 export default router;
