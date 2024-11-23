@@ -1,8 +1,7 @@
-// index.js
-
 import express from 'express';
 import generalRoutes from './routes/generalRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import db from './config/db.js'
 
 const app = express();
 
@@ -11,7 +10,7 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 
 // Carpeta publica 
-app.use(express.static('public'))
+app.use(express.static('./public'))
 
 const port = 3006;
 
@@ -19,6 +18,14 @@ const port = 3006;
 app.use("/", generalRoutes);
 app.use("/usuario/", userRoutes);
 app.use('/auth', userRoutes);
+
+try{
+    await db.authenticate();
+    db.sync()
+    console.log('conexión correcta a la base de datos')
+}catch (error){
+    console.log(error);
+}
 
 // Iniciar el servidor
 app.listen(port, () => {

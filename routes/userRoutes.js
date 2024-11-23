@@ -1,5 +1,5 @@
 import express from 'express';
-import { formularioLogin,formularioRegister,formularioPasswordRecovery,createNewUser,confirm, resetPassword,checkToken,newPassword} from '../controllers/userController.js';
+import { formLogin, formPasswordRecovery, create, formCreateAccount} from '../controllers/userControllers.js';
 
 const router =  express.Router();
 
@@ -13,7 +13,7 @@ router.get("/busquedaPorID/:id", function (request, response){
 })   //2 componentes de una petición ruta y función callback - La ruta es la que pide la información el callback es lo que se va a hacer
 
 //POST - se utiliza para el envío de datos e información del cliente al servidor
-router.post("/newUser",createNewUser)
+
 
 //PUT - se utiliza para la actualización total de información del cliente al servidor
 router.put("/replaceUserByEmail/:name/:email/:password", function(a,b){
@@ -40,15 +40,10 @@ router.delete("/deleteUser/:email", function(request,response){
     response.send(`Se ha solicitado la eliminación del usuario asociado al correo: ${request.params.email}`)
 })
 
-router.get("/login",formularioLogin/*Middelware*/)
-router.get("/createAccount",formularioRegister)
-router.post("/createAccount",formularioRegister)
-router.get("/passwordRecovery",formularioPasswordRecovery)
-router.post("/passwordRecovery", resetPassword)
-router.get('/confirm/:token',confirm )
+router.get("/login", formLogin)
+router.get("/createAccount", create)
+router.post("/createAccount", create)
+router.get("/passwordRecovery",formPasswordRecovery)
 
-//Almacena el nuevo password
-router.get('/passwordRecovery/:token', checkToken)
-router.post('/passwordRecovery/:token', newPassword)
 
 export default router;
