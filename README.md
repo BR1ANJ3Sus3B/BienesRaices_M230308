@@ -10,6 +10,8 @@ Aquí tienes la tabla actualizada con las fechas agregadas:
 | 8.   | Nuevo Repositorio del Proyecto implementando  .gitinore    | 1           | ✔️ Finalizada| 17/10/2024  |
 | 9.   | Creacion de una aplicacion Web usando Express    | 12           | ✔️ Finalizada| 22/10/2024  |
 | 10.    |Operaciones Basicas de una API a traves de los verbos HTTP  | 12           | ✔️ Finalizada| 22/10/2024  |
+| 11. |Creación de fromularios para el ingreso, Registro y Recuperación de contraseñas de usuario | 13    | ✔️ Finalizada| 11/11/2024  |
+
 
 ### Tech Stack
 ![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
