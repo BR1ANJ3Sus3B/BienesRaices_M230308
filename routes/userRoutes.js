@@ -1,6 +1,9 @@
 import express from 'express';
+import { formularioLogin,formularioRegister,formularioPasswordRecovery,createNewUser,confirm, resetPassword,checkToken,newPassword} from '../controllers/userController.js';
 
 const router =  express.Router();
+
+
 //GET - Se utiliza para la lectura de datos e información del servidor al cliente
 //ENDPOINTS - son las rutas para acceder a las secciones o funciones de nuestra aplicación web
 // 2 componentes de una petición ruta (a donde voy), función callback (que hago)
@@ -36,4 +39,16 @@ router.patch("/updatePassword/:email/:newPassword/:newPasswordConfirm", function
 router.delete("/deleteUser/:email", function(request,response){
     response.send(`Se ha solicitado la eliminación del usuario asociado al correo: ${request.params.email}`)
 })
+
+router.get("/login",formularioLogin/*Middelware*/)
+router.get("/createAccount",formularioRegister)
+router.post("/createAccount",formularioRegister)
+router.get("/passwordRecovery",formularioPasswordRecovery)
+router.post("/passwordRecovery", resetPassword)
+router.get('/confirm/:token',confirm )
+
+//Almacena el nuevo password
+router.get('/passwordRecovery/:token', checkToken)
+router.post('/passwordRecovery/:token', newPassword)
+
 export default router;
