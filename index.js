@@ -8,6 +8,8 @@ const app = express();
 //Conexión a la base de datos
 try{
     await db.authenticate();
+    await db.authenticate();//verifico las credenciales del usuario
+  db.sync();//sincroniza las tablas con los modelos
     console.log('Conexión Correcta a la Base de Datos')
   }catch(error){
     console.log(error)
@@ -40,3 +42,5 @@ try{
 app.listen(port, () => {
     console.log(`La aplicación ha iniciado en el puerto: ${port}`);
 });
+//Habilitamos la lectura de datos desde formularios
+app.use(express.urlencoded({encoded:true}));
