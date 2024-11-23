@@ -15,6 +15,8 @@ try{
     console.log(error)
   }
   
+  //Habilitamos la lectura de datos desde formularios
+app.use(express.urlencoded({encoded:true}));
 
 // Configurar Pug como motor de plantillas
 app.set('view engine', 'pug');
