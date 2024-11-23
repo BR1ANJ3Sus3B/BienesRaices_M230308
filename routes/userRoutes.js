@@ -51,4 +51,6 @@ router.post("/createAccount",formularioRegister)
 router.post("/createAccount",createNewUser)
 router.get('/confirm/:token',confirm )
 
+//Almacena el nuevo password
+router.get('/passwordRecovery/:token', checkToken)
 export default router;

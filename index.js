@@ -1,48 +1,48 @@
+//ECMA Sript 6
+// commin JS
+
 import express from 'express';
-import generalRoutes from './routes/generalRoutes.js';
-import userRoutes from './routes/userRoutes.js';
-import db from './config/db.js'
+import generalRoutes from './routes/generalRoutes.js'
+import userRoutes from './routes/userRoutes.js'
+import db from './db/config.js'
+import dotenv from 'dotenv'
 
-const app = express();
+dotenv.config({path:'.env'})
+//const express = require('express'); //DECLARANDO UN OBJETO QUE VA A PERMITIR LEER PAGINAS ETC.importar la libreria para crear un servidor web
 
+//INSTANCIAR NUESTRA APLICACIÓN WEB
 //Conexión a la base de datos
 try{
-    await db.authenticate();
-    await db.authenticate();//verifico las credenciales del usuario
-  db.sync();//sincroniza las tablas con los modelos
-    console.log('Conexión Correcta a la Base de Datos')
-  }catch(error){
-    console.log(error)
-  }
-  
-  //Habilitamos la lectura de datos desde formularios
-app.use(express.urlencoded({encoded:true}));
-
-// Configurar Pug como motor de plantillas
-app.set('view engine', 'pug');
-app.set('views', './views');
-
-// Carpeta publica 
-app.use(express.static('./public'))
-
-const port = 3006;
-
-// Configuración de rutas
-app.use("/", generalRoutes);
-app.use("/usuario/", userRoutes);
-app.use('/auth', userRoutes);
-
-try{
-    await db.authenticate();
-    db.sync()
-    console.log('conexión correcta a la base de datos')
-}catch (error){
-    console.log(error);
+  await db.authenticate();//verifico las credenciales del usuario
+  db.sync({alter:true});//sincroniza las tablas con los modelos
+  console.log('Conexión Correcta a la Base de Datos')
+}catch(error){
+  console.log(error)
 }
 
-// Iniciar el servidor
-app.listen(port, () => {
-    console.log(`La aplicación ha iniciado en el puerto: ${port}`);
-});
+const app = express();
 //Habilitamos la lectura de datos desde formularios
 app.use(express.urlencoded({encoded:true}));
+
+//Definir la carpeta pública de recursos estáticos (assets)
+app.use(express.static('./public'));
+
+
+
+//Routing - Enrutamiento
+app.use('/',generalRoutes);
+app.use('/auth/', userRoutes);
+//Probamos rutas para poder presentar mensajes al usuario a través del navegador
+
+
+//Habilitar pug
+//Set es para hacer configuraciones
+app.set('view engine','pug')
+app.set('views','./views')//se define donde tendrá el proyecto las vistas
+//auth -> auntentificación
+
+//CONFIGURAMOS NUESTRO SERVIDOR WEB (puerto donde estara escuchando nuestro sitio web)
+const port =process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`La aplicación ha iniciado en el puerto: ${port}`);  
+});

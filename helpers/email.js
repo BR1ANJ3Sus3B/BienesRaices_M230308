@@ -3,15 +3,15 @@ import dotenv from 'dotenv'
 
 dotenv.config({path:'.env'})
 
-const emailAfterRegister=async(newUserData)=>{
+const emailAfterRegister=async(data)=>{
     const transport = nodemailer.createTransport({
         host: process.env.Email_HOST,
         port: process.env.Email_PORT,
         auth: {
             user: process.env.Email_USER,
             pass: process.env.Email_PASS,
-        }
-    })
+        },
+    });
 
     //console.log(data)
     const { email, name, token } = data;
