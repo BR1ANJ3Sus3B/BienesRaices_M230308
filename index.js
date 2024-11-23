@@ -1,3 +1,5 @@
+import generalRoutes from'./routes/generalRoutes.js'
+
 import express from 'express'
 
 const port = 3006 ;
@@ -19,3 +21,4 @@ app.get("/quienEres",function(req,res){
 
     })
 })
+app.use("/",generalRoutes);
