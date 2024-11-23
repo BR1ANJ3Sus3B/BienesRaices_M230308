@@ -1,16 +1,15 @@
-module.exports = {
-  content: [
-    './src/**/*.{html,js,pug}', 
-    './views/**/*.{html,js,pug}', 
-  ],
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./views/**/*.pug'],
   theme: {
-    extend: {
-      colors: {
-        customLightBlue: '#B6C3F5',
-        customButtonColor: '#ff5733',        
-        customLightGreen: '#74F4E8',
-      },
+    colors: {
+      'black': '#000000',
+      'white': '#ffffff',
+      'winkle': '#ddd6fe',
+      'palePurple': '#f3e8ff',
+      'peri': '#c7d2fe',
     },
+    extend: {},
   },
   plugins: [],
-};
+}
