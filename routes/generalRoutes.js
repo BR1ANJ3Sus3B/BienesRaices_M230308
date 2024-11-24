@@ -1,21 +1,22 @@
-import express from 'express'
+// routes/generalRoutes.js
+import express from 'express';
 
-const router = express.Router()
+const router = express.Router();
 
+// Ruta raíz
+router.get("/", (req, res) => {
+    res.send("Hola desde la web en NodeJS");
+});
 
-
-router.get("/", function(req, res){
-    res.send("Hola desde la web en NodeJS")
-})
-
-router.get("/quienEres", function(req, res){
+// Ruta quienEres
+router.get("/quienEres", (req, res) => {
     res.json({
-        "nombre" : "Brian jesus mendoza marquez",
-        "carrera" : "TI DSM",
-        "grado" : "4",
-        "grupo" : "B",
-        "Signo zodiacal" : "Aries"
-    })
-})
+        "nombre": "Brian jesus mendoza marquez",
+        "carrera": "TI DSM",
+        "grado": "4",
+        "grupo": "B",
+        "Signo zodiacal": "Aries"
+    });
+});
 
 export default router;

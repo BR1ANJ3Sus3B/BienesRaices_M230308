@@ -7,6 +7,7 @@
   "scripts": {
     "saluda": "node saludo.js",
     "server": "nodemon index.js",
+    "dev": "nodemon index.js",
     "css": "postcss Public/css/tailwind.css -o Public/css/app.css --watch"
   },
   "repository": {
@@ -45,6 +46,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "express-validator": "^7.2.0",
+    "jsonwebtoken": "^9.0.2",
     "luxon": "^3.5.0",
     "mysql2": "^3.11.4",
     "nodemailer": "^6.9.16",

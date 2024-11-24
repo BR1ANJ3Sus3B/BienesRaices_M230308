@@ -1,48 +1,41 @@
-//ECMA Sript 6
-// commin JS
-
+// Importar librerías necesarias
 import express from 'express';
-import generalRoutes from './routes/generalRoutes.js'
-import userRoutes from './routes/userRoutes.js'
-import db from './db/config.js'
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
+import generalRoutes from './routes/generalRoutes.js';  // Importa las rutas generales
+import userRoutes from './routes/userRoutes.js';  // Importa las rutas de usuario
+import db from './db/config.js';  // Configuración de la base de datos
 
-dotenv.config({path:'.env'})
-//const express = require('express'); //DECLARANDO UN OBJETO QUE VA A PERMITIR LEER PAGINAS ETC.importar la libreria para crear un servidor web
+// Cargar las variables de entorno
+dotenv.config({ path: '.env' });
 
-//INSTANCIAR NUESTRA APLICACIÓN WEB
-//Conexión a la base de datos
-try{
-  await db.authenticate();//verifico las credenciales del usuario
-  db.sync({alter:true});//sincroniza las tablas con los modelos
-  console.log('Conexión Correcta a la Base de Datos')
-}catch(error){
-  console.log(error)
+// Instanciar la aplicación Express
+const app = express();
+
+// Conexión a la base de datos
+try {
+  await db.authenticate();  // Verificar las credenciales de la base de datos
+  await db.sync({ alter: true });  // Sincroniza las tablas con los modelos (evitar en producción)
+  console.log('Conexión exitosa a la base de datos');
+} catch (error) {
+  console.error('Error de conexión a la base de datos:', error);
 }
 
-const app = express();
-//Habilitamos la lectura de datos desde formularios
-app.use(express.urlencoded({encoded:true}));
+// Habilitar el middleware para leer datos de formularios
+app.use(express.urlencoded({ extended: true }));
 
-//Definir la carpeta pública de recursos estáticos (assets)
+// Configurar recursos estáticos (carpeta public)
 app.use(express.static('./public'));
 
+// Habilitar el uso de Pug como motor de plantillas
+app.set('view engine', 'pug');
+app.set('views', './views');  // Definir la carpeta donde están las vistas
 
+// Configuración de rutas
+app.use('/', generalRoutes);  // Añadir la ruta general
+app.use('/auth/', userRoutes);  // Rutas de autenticación
 
-//Routing - Enrutamiento
-app.use('/',generalRoutes);
-app.use('/auth/', userRoutes);
-//Probamos rutas para poder presentar mensajes al usuario a través del navegador
-
-
-//Habilitar pug
-//Set es para hacer configuraciones
-app.set('view engine','pug')
-app.set('views','./views')//se define donde tendrá el proyecto las vistas
-//auth -> auntentificación
-
-//CONFIGURAMOS NUESTRO SERVIDOR WEB (puerto donde estara escuchando nuestro sitio web)
-const port =process.env.PORT || 3000;
+// Configuración del puerto del servidor
+const port = process.env.PORT || 3006;
 app.listen(port, () => {
-  console.log(`La aplicación ha iniciado en el puerto: ${port}`);  
+  console.log(`La aplicación ha iniciado en el puerto: ${port}`);
 });
