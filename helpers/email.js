@@ -47,7 +47,7 @@ const emailAfterRegister = async (data) => {
 
                         <!-- Botón de confirmación -->
                         <div style="text-align: center; margin-top: 30px;">
-                            <a href="${process.env.BACKEND_DOMAIN}:${process.env.PORT ?? 3006}/auth/login/${token}"
+                            <a href="${process.env.BACKEND_DOMAIN}:${process.env.PORT ?? 3006}/auth/confirm/${token}"
                                style="display: inline-block; padding: 14px 30px; font-size: 16px; color: #fff; background-color: #3498db; text-decoration: none; border-radius: 50px; font-weight: 500; transition: background-color 0.3s ease;">
                                 Confirmar Cuenta
                             </a>
