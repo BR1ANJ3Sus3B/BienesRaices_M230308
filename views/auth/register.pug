@@ -45,6 +45,10 @@ block contenido
             div
               label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold Confirmación de Contraseña:
               input#passwordConfirm.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(type="password" placeholder="Debe coincidir con la anterior" name="pass2_usuario" )
+            // Campo de fecha de nacimiento
+            div
+              label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold Fecha de Nacimiento:
+              input#birthdate.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(type="date" name="fecha_nacimiento" )
 
             div.flex.items-center.justify-between
               a.text-gray-500.text-xs(href="/auth/login" class="hover:underline decoration2 hover:decoration-peri") ¿Ya tienes cuenta? Inicia sesión
