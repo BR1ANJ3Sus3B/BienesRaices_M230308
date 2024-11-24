@@ -1,31 +1,46 @@
 extends ../layout/index
 
 block contenido
-     div.py-10 
-        h2.text-center.font-extrabold.my-10.text-4xl.text-indigo-600 Bienes
-            span.font-normal.text-black Raices
-        h2.text-center.font-extrabold.text-2xl=page 
+  div.py-10
+    h1.text-center.font-extrabold.my-10.text-4xl.text-peri Bienes
+      span.font-normal.text-black Raíces
+    h2.text-center.font-extrabold.text-2xl= page
 
-        .mt-8.mx-auto.max-w-md
-          .bg-white.py-8.px-4.shadow
-           form.space-y-5.px-6(action="")
-            div 
-               label.block.text-sm.uppercase.text-gray-600.mb-2.font-bold Nombre Completo:
-               input#name.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder-gray-400(type="text"  placeholder="Ingresa el nombre con apellidos" name="nombre_usuario")
-            div            
-               label.block.text-sm.uppercase.text-gray-600.mb-2.font-bold Correo Electrónico:
-               input#email.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder-gray-400(type="email"  placeholder="ej: usuario@dominio.com" name="correo_usuario")
-            div
-               label.block.text-sm.uppercase.text-gray-600.mb-2.font-bold Contraseña:
-               input#password.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder-gray-400(type="password"  placeholder="Mínimo de 8 carácteres" name="password_usuario")
-            div
-               label.block.text-sm.uppercase.text-gray-600.mb-2.font-bold Confirmación Contraseña:
-               input#password-confirm.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder-gray-400(type="password"  placeholder="Mínimo de 8 carácteres, igual a la anterior" name="pass2_usuario")
+    // Mostrar errores si existen
+    if errors
+      div(class="max-w-md mx-auto my-10")
+        each error in errors
+          div(class="bg-red-600 text-white p-4 rounded-md flex items-center justify-between mb-2")
+            p(class="text-sm font-bold")= error.msg
+            button(class="ml-2 bg-transparent border-0 text-white text-2xl hover:text-black focus:outline-none" onclick="this.parentElement.style.display='none'") &times;
 
-            .flex.items-center.justify-between 
-                a.text-gray-500.text-xs(href="/auth/login") ¿Ya tienes cuenta? 
-                    span.underline Inicia Sesión
-                a.text-gray-500.text-xs(href='/auth/Recovery') Olvidé mi 
-                    span.underline Password.
-            div
-                input(class="w-full bg-customLightGreen hover:bg-green-600 text-white font-bold py-3 cursor-pointer" type="submit" value="Crear cuenta")
+    .mt-8.mx-auto.max-w-md
+      .bg-white.py-8.px-4.shadow
+        form.space-y-5.px-6(method="POST" action="/auth/newUser" noValidate)
+          div
+            label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold Nombre Completo:
+            input#name.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(type="text" placeholder="Ej. Juanito Peréz" name="nombre_usuario" )
+          div
+            label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold Correo Electrónico:
+            input#email.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(type="email" placeholder="Ej. JuanitoPeréz@gmail.com" name="correo_usuario" )
+          div
+            label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold Contraseña:
+            input#password.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(type="password" placeholder="Mínimo de 8 caracteres" name="pass_usuario" )
+          div
+            label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold Confirmación de Contraseña:
+            input#passwordConfirm.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(type="password" placeholder="Debe coincidir con la anterior" name="pass2_usuario" )
+
+          div.flex.items-center.justify-between
+            a.text-gray-500.text-xs(href="/auth/login" class="hover:underline decoration2 hover:decoration-peri") ¿Ya tienes cuenta? Inicia sesión
+            a.text-gray-500.text-xs(href="/auth/passwordRecovery" class="hover:underline decoration2 hover:decoration-peri") Olvidé mi Contraseña
+          
+          // Botón de envío siempre visible
+          input(class="w-full bg-winkle hover:bg-palePurple text-white font-bold py-3 cursor-pointer focus:outline-none" type="submit" value="Crear una Cuenta")
+
+  // Script para ocultar los errores después de 7 segundos
+  script.
+    document.querySelectorAll('.bg-red-600').forEach(error => {
+      setTimeout(() => {
+        error.style.display = 'none';
+      }, 7000);
+    });

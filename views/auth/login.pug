@@ -1,24 +1,20 @@
 extends ../layout/index
 
-block contenido 
-      h2.text-center.font-extrabold.my-10.text-4xl.text-cute_purple-100 Bienes
-    div 
-        h2.text-center.font-extrabold.text-6xl= page
-
+block contenido
+    div.py-10
+        h1.text-center.font-extrabold.my-10.text-4xl.text-white Bienes
+            span.font-normal.text-black Raíces
+        h2.text-center.font-extrabold.text-2xl= page
         .mt-8.mx-auto.max-w-md
-          .bg-white.py-8.px-4.shadow
-           form.space-y-5.px-6(action="")
-            div 
-               label.block.text-sm.uppercase.text-gray-600.mb-2.font-bold Correo Electrónico:
-               input#email.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder-gray-400(type="email"  placeholder="ej: usuario@dominio.com" name="correo_usuario")
-            div
-               label.block.text-sm.uppercase.text-gray-600.mb-2.font-bold Contraseña:
-               input#password.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder-gray-400(type="password"  placeholder="Mínimo de 8 carácteres" name="password_usuario")
-             
-            .flex.items-center.justify-between
-                a.text-gray-500.text-xs(href="/auth/Register") ¿Aún no tienes cuenta? 
-                    span.underline Regístrate
-                a.text-gray-500.text-xs(href='/auth/Recovery') Olvidé mi 
-                    span.underline Password
-            div
-                input(class="w-full bg-cute_purple-100 hover:bg-cute_purple-200 text-white font-bold py-3 cursor-pointer" type="submit" value="Ingresar"
+            .bg-white.py-8.px-4.shadow
+                form.space-y-5.px-6(action="/auth/login" method="POST")
+                    div
+                        label.block.text-sm.uppercase.text-black.mb-2.font-bold Correo Electrónico:
+                        input#email.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-winkle(type="email" placeholder="Ej. JuanitoPeréz@gmail.com" name="correo_usuario" required)
+                    div
+                        label.block.text-sm.uppercase.text-black.mb-2.font-bold Contraseña:
+                        input#password.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-winkle(type="password" placeholder="Mínimo de 8 caracteres" name="pass_usuario" required)
+                    div.flex.items-center.justify-between
+                        a.text-black.text-xs(href="/auth/createAccount" class="hover:underline decoration2 hover:decoration-peri") ¿No tienes cuenta? Regístrate
+                        a.text-black.text-xs(href="/auth/passwordRecovery" class="hover:underline decoration2 hover:decoration-peri") Olvidé mi Contraseña
+                    input(class="w-full bg-palePurple hover:bg-vibrantYellow text-white font-bold py-3 cursor-pointer" type="submit" value="Ingresar")

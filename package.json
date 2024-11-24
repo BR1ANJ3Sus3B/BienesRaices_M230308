@@ -7,7 +7,8 @@
   "scripts": {
     "saluda": "node saludo.js",
     "server": "nodemon index.js",
-     "css": "postcss Public/css/tailwind.css -o Public/css/app.css --watch"
+    "dev": "nodemon index.js",
+    "css": "postcss Public/css/tailwind.css -o Public/css/app.css --watch"
   },
   "repository": {
     "type": "git",
@@ -40,7 +41,17 @@
     "tailwindcss": "^3.4.15"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
-    "pug": "^3.0.3"
+    "express-validator": "^7.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "luxon": "^3.5.0",
+    "mysql2": "^3.11.4",
+    "nodemailer": "^6.9.16",
+    "pug": "^3.0.3",
+    "sequelize": "^6.37.5",
+    "sweetalert2": "^11.14.5"
   }
 }
