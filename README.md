@@ -11,7 +11,7 @@ Aquí tienes la tabla actualizada con las fechas agregadas:
 | 9.   | Creacion de una aplicacion Web usando Express    | 12           | ✔️ Finalizada| 22/10/2024  |
 | 10.    |Operaciones Basicas de una API a traves de los verbos HTTP  | 12           | ✔️ Finalizada| 22/10/2024  |
 | 11. |Creación de fromularios para el ingreso, Registro y Recuperación de contraseñas de usuario | 13    | ✔️ Finalizada| 11/11/2024  |
-| 12. |Implementación de validación en formulario y duplicidad en base de datos| 30    | 😒Activa| 14/11/2024  |    
+| 12. |Implementación de validación en formulario y duplicidad en base de datos| 30    | ✔️ Finalizada| 14/11/2024  |    
 
 
 ### Tech Stack
