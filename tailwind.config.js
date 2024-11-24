@@ -7,13 +7,13 @@ module.exports = {
     extend: {
       colors: {
         customLightBlue: '#B6C3F5',       // Azul claro personalizado
-        customButtonColor: '#ff5733',    // Naranja vibrante
+        customButtonColor: '#FFFFFF',    // Naranja vibrante
         customLightGreen: '#74F4E8',     // Verde agua claro
         skyBlue: '#87CEEB',              // Azul cielo
-        palePurple: '#0BC9CD',           // Turquesa
+        palePurple: '#000000',           // Turquesa
         vibrantYellow: '#A1CDF4',        // Amarillo vibrante
         deepPurple: '#673AB7',           // Morado profundo
-        softPink: '#FFC1CC',             // Rosa suave
+        softPink: '#000022',             // Rosa suave
         forestGreen: '#228B22',          // Verde bosque
       },
     },
