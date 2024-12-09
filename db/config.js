@@ -1,19 +1,22 @@
-import { Sequelize } from 'sequelize';
-import dotenv from 'dotenv';
+import Sequelize from 'sequelize'
+import dotenv from 'dotenv'
+dotenv.config({path:'.env'})
 
-// Cargar las variables de entorno
-dotenv.config();
+const db = new Sequelize(process.env.DB_NAME,process.env.DB_USER,process.env.DB_PASS,{
+    host: process.env.DB_DOMAIN,
+    port: process.env.DB_PORT,
+    dialect: 'mysql',
+    timezone:'-06:00',
+    defione: {
+        timestamps: true
+    },
+    pool:{
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    },
+    operatorAliases: false
+});
 
-const sequelize = new Sequelize(
-  
-  process.env.BD_NAME, // nombre de la base de datos
-  process.env.BD_USER, // nombre del usuario
-  process.env.BD_PASSWORD, // contraseña del usuario
-  {
-    host: process.env.DB_HOST ,  // Dirección del servidor
-    dialect: 'mysql', // Dialecto de la base de datos (MySQL)
-    logging: false, // Desactivar logging de SQL (opcional)
-  }
-);
-
-export default sequelize;
+export default db;

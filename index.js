@@ -1,41 +1,41 @@
-// Importar librerías necesarias
 import express from 'express';
-import dotenv from 'dotenv';
-import generalRoutes from './routes/generalRoutes.js';  // Importa las rutas generales
-import userRoutes from './routes/userRoutes.js';  // Importa las rutas de usuario
-import db from './db/config.js';  // Configuración de la base de datos
-
-// Cargar las variables de entorno
-dotenv.config({ path: '.env' });
-
-// Instanciar la aplicación Express
-const app = express();
+import generalRoutes from './routes/generalRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import db from './db/config.js';
+import csrf from 'csurf';
+import cookieParser from 'cookie-parser';
 
 // Conexión a la base de datos
 try {
-  await db.authenticate();  // Verificar las credenciales de la base de datos
-  await db.sync({ alter: true });  // Sincroniza las tablas con los modelos (evitar en producción)
-  console.log('Conexión exitosa a la base de datos');
+    await db.authenticate(); // Verifica las credenciales del usuario 
+    db.sync();
+    console.log('Conexión correcta a la base de datos');
 } catch (error) {
-  console.error('Error de conexión a la base de datos:', error);
+    console.log(error);
 }
 
-// Habilitar el middleware para leer datos de formularios
-app.use(express.urlencoded({ extended: true }));
+const app = express();
 
-// Configurar recursos estáticos (carpeta public)
+// Definir la carpeta pública de recursos estáticos
 app.use(express.static('./public'));
 
-// Habilitar el uso de Pug como motor de plantillas
+// Habilitar la lectura de datos desde formularios
+app.use(express.urlencoded({ extended: true }));
+
+// Habilitar Cookie Parser y CSRF
+app.use(cookieParser());
+app.use(csrf({ cookie: true }));
+
+// Routing
+app.use('/', generalRoutes);
+app.use('/auth', userRoutes);
+
+// Habilitar Pug
 app.set('view engine', 'pug');
-app.set('views', './views');  // Definir la carpeta donde están las vistas
+app.set('views', './views');
 
-// Configuración de rutas
-app.use('/', generalRoutes);  // Añadir la ruta general
-app.use('/auth/', userRoutes);  // Rutas de autenticación
-
-// Configuración del puerto del servidor
-const port = process.env.PORT || 3006;
+// Configuración del servidor
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`La aplicación ha iniciado en el puerto: ${port}`);
+    console.log(`La aplicación ha iniciado en el puerto: ${port}`);
 });

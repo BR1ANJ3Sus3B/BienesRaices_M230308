@@ -1,26 +1,9 @@
 extends ../layout/index
 
 block contenido
-    .py-8
-        // Encabezado principal con diseño estilizado
-        .text-center
-            h1.text-4xl.font-bold.my-6.text-peri Bienes 
-                span.font-normal.text-black Raíces
-            h2.text-2xl.font-bold.mt-4.text-gray-800=page
-        // Imagen decorativa
-        .my-8.flex.justify-center
-            img(
-                src="https://i.pinimg.com/736x/bc/e9/a3/bce9a34b80232cd27862a1f569faf937.jpg" 
-                alt="Raíces decorativas" 
-                class="rounded-lg shadow-md w-full sm:w-3/4 md:w-1/2"
-            )
-        // Mensaje centrado con diseño
-        div(class="px-4 md:px-16")
-            p(class="text-base md:text-lg font-normal text-center my-6 text-gray-700")
-                | Explora nuestras propiedades y descubre un mundo de oportunidades. 
-                br
-                | Ya sea para inversión, venta o compra de bienes raíces, ofrecemos servicios de calidad 
-                br
-                | respaldados por años de experiencia. Nuestra misión es ayudarte a encontrar el hogar o la 
-                br
-                | propiedad ideal que se ajuste a tus necesidades.
+    div.py-10
+        h1.text-center.font-extrabold.my-10.text-4xl.text-peri Bienes 
+            span.font-normal.text-black Raíces
+        h2.text-center.font-extrabold.text-2xl.text-emerald= page
+    div(class="bg-white text-center text-black p-4 text-lg shadow-xl mx-auto w-fit")
+        p.text-xl.font-bold.text-center.my-10= msg
