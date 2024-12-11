@@ -2,14 +2,14 @@ extends ../layout/index
 
 block contenido
     div.py-10
-        h1.text-center.font-extrabold.my-10.text-4xl.text-peri Bienes 
+        h1.text-center.font-extrabold.my-10.text-4xl.text-skyBlue Bienes 
             span.font-normal.text-black Raíces
         h2.text-center.font-extrabold.text-2xl= page
 
         if errors
             div(class="max-w-md mx-auto my-10")
                 each error in errors
-                    div(class="bg-reds text-white p-4 rounded-md flex items-center justify-between mb-2 alert fade-in")
+                    div(class="bg-red text-white p-4 rounded-md flex items-center justify-between mb-2 alert fade-in")
                         if error.msg == "El nombre no puede ir vacío"
                             i(class="fas fa-user-times mr-2")  
                         else if error.msg == "El correo electrónico es un campo obligatorio"
@@ -29,10 +29,10 @@ block contenido
                     input(type="hidden" name="_csrf" value= csrfToken)
                     div
                         label.block.text-sm.uppercase.text-black.mb-2.font-bold Nombre Completo: 
-                        input#name.w-full.px-3.py-2.border-2.border-black.rounded-md(type="text" placeholder="Ej. Juanito Peréz" name="name" value=User && User.name || "")
+                        input#name.w-full.px-3.py-2.border-2.border-black.rounded-md(type="text" placeholder="Ingresa tu nombre" name="name" value=User && User.name || "")
                     div
                         label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold Email de Registro: 
-                        input#email.w-full.px-3.py-2.border-2.border-black.rounded-md(type="email" placeholder="Ej. usuario@paisdelasmaravillas.com" name="correo_usuario" value=User && User.email || "")
+                        input#email.w-full.px-3.py-2.border-2.border-black.rounded-md(type="email" placeholder="Ej. usuario@gmail.com" name="correo_usuario" value=User && User.email || "")
                     div
                         label.block.text-sm.uppercase.text-black.mb-2.font-bold Fecha de Nacimiento: 
                         input#birthdate.w-full.px-3.py-2.border-2.border-black.rounded-md(type="date" name="fecha_nacimiento" value=User && User.fecha_nacimiento || "")
@@ -43,9 +43,9 @@ block contenido
                         label.block.text-sm.uppercase.text-black.mb-2.font-bold Confirmar Contraseña: 
                         input#password2.w-full.px-3.py-2.border-2.border-black.rounded-md(type="password" placeholder="Minimo de 8 caracteres" name="pass2_usuario")
                     div.flex.items-center.justify-between
-                        a.text-gray-500.text-xs(href="/auth/login" class="hover:underline decoration-2 hover:decoration-peri") ¿Ya tienes cuenta? Inicia Sesión
-                        a.text-gray-500.text-xs(href="/auth/passwordRecovery" class="hover:underline decoration-2 hover:decoration-peri") Recuperar Contraseña
-                    input(class="w-full bg-peri hover:bg-palePurple text-black font-bold py-3 cursor-pointer" type="submit" value="Crear Cuenta")
+                        a.text-gray-500.text-xs(href="/auth/login" class="hover:underline decoration-2 hover:decoration-skyBlue") ¿Ya tienes cuenta? Inicia Sesión
+                        a.text-gray-500.text-xs(href="/auth/passwordRecovery" class="hover:underline decoration-2 hover:decoration-skyBlue") Recuperar Contraseña
+                    input(class="w-full bg-skyBlue hover:bg-palePurple text-black font-bold py-3 cursor-pointer" type="submit" value="Crear Cuenta")
 
     script.
         document.querySelectorAll('.alert').forEach(error => {

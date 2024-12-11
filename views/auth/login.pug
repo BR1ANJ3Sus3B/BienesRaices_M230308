@@ -2,7 +2,7 @@ extends ../layout/index
 
 block contenido
     div.py-10
-        h1.text-center.font-extrabold.my-10.text-4xl.text-white Bienes
+        h1.text-center.font-extrabold.my-10.text-4xl.text-skyBlue Bienes
             span.font-normal.text-black Raíces
         h2.text-center.font-extrabold.text-2xl= page
         
@@ -20,11 +20,11 @@ block contenido
                     input(type="hidden" name="_csrf" value=csrfToken)
                     div
                         label.block.text-sm.uppercase.text-black.mb-2.font-bold Correo Electrónico:
-                        input#email.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-winkle(type="email" placeholder="Ej. JuanitoPeréz@gmail.com" name="correo_usuario" required)
+                        input#email.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-black(type="email" placeholder="Ej. correo@gmail.com" name="correo_usuario" required)
                     div
                         label.block.text-sm.uppercase.text-black.mb-2.font-bold Contraseña:
-                        input#password.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-winkle(type="password" placeholder="Mínimo de 8 caracteres" name="pass_usuario" required)
+                        input#password.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-black(type="password" placeholder="Mínimo de 8 caracteres" name="pass_usuario" required)
                     div.flex.items-center.justify-between
-                        a.text-black.text-xs(href="/auth/createAccount" class="hover:underline decoration2 hover:decoration-peri") ¿No tienes cuenta? Regístrate
-                        a.text-black.text-xs(href="/auth/passwordRecovery" class="hover:underline decoration2 hover:decoration-peri") Olvidé mi Contraseña
-                    input(class="w-full bg-palePurple hover:bg-vibrantYellow text-white font-bold py-3 cursor-pointer" type="submit" value="Ingresar")
+                        a.text-black.text-xs(href="/auth/createAccount" class="hover:underline decoration2 hover:decoration-skyBlue") ¿No tienes cuenta? Regístrate
+                        a.text-black.text-xs(href="/auth/passwordRecovery" class="hover:underline decoration2 hover:decoration-skyBlue") Olvidé mi Contraseña
+                    input(class="w-full bg-vibrantYellow hover:bg-palePurple text-white font-bold py-3 cursor-pointer" type="submit" value="Ingresar")

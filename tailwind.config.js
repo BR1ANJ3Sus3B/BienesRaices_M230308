@@ -10,10 +10,10 @@ module.exports = {
         customButtonColor: '#FFFFFF',
         customLightGreen: '#74F4E8',
         skyBlue: '#87CEEB',
-        palePurple: '#000000',
+        palePurple: '#f3e8ff',
         vibrantYellow: '#A1CDF4',
         deepPurple: '#673AB7',
-        softPink: '#000022',
+        red: '#AB1334',
         forestGreen: '#228B22',
       },
       animation: {
