@@ -7,11 +7,13 @@ Para poder demostrar y apreder la crecion y consumo de Interfaces de Programacio
 Aquí tienes la tabla actualizada con las fechas agregadas:
 |   No.| Descripción                                                | Potenciador | Estatus      | Fecha       |
 |------|-----------------------------------------------------------|-------------|--------------|-------------|
-| 8.   | Nuevo Repositorio del Proyecto implementando  .gitinore    | 1           | ✔️ Finalizada| 17/10/2024  |
-| 9.   | Creacion de una aplicacion Web usando Express    | 12           | ✔️ Finalizada| 22/10/2024  |
-| 10.    |Operaciones Basicas de una API a traves de los verbos HTTP  | 12           | ✔️ Finalizada| 22/10/2024  |
-| 11. |Creación de fromularios para el ingreso, Registro y Recuperación de contraseñas de usuario | 13    | ✔️ Finalizada| 11/11/2024  |
-| 12. |Implementación de validación en formulario y duplicidad en base de datos| 30    | ✔️ Finalizada| 14/11/2024  |    
+|8.|Nuevo Repositorio del Proyecto implementando .gitinore | 1           | ✔️ Finalizada| 17/10/2024  |
+|9.|Creacion de una aplicacion Web usando Express    | 12           | ✔️ Finalizada| 22/10/2024  |
+|10.|Operaciones Basicas de una API a traves de los verbos HTTP  | 12           | ✔️ Finalizada| 22/10/2024  |
+|11.|Creación de fromularios para el ingreso, Registro y Recuperación de contraseñas de usuario | 13    | ✔️ Finalizada| 11/11/2024  |
+|12.|Implementación de validación en formulario y duplicidad en base de datos|30|✔️ Finalizada.|14/11/2024|
+|13.|Implementación de validación en formulario de recuperación de contraseña|20|✔️ Finalizada.|21/11/2024
+|14.|Implementación de la vista principal de propiedades|10|✔️ Activa.|10/12/2024|
 
 
 ### Tech Stack
