@@ -1,0 +1,25 @@
+extends ../layout/index
+
+block contenido
+    header.bg-vibrantYellow.text-white.py-20.shadow-lg
+        h1.text-6xl.font-light.text-center.mb-6 Bienvenido a Propiedades
+        p.text-xl.mt-4.text-center.opacity-90 Administra tus propiedades de manera eficiente y profesional.
+
+    div.py-10
+        
+        h1.text-center.font-extrabold.my-10.text-4xl.text-skyBlue Bienes 
+            span.font-normal.text-black Raíces
+        h2.text-center.font-extrabold.text-2xl= page
+                a(href='https://www.shutterstock.com/image-vector/residential-building-cottage-house-monochrome-260nw-2282312727.jpg', alt='Imagen de una casa representativa')
+                    img(src='https://www.shutterstock.com/image-vector/residential-building-cottage-house-monochrome-260nw-2282312727.jpg', alt='Imagen de una casa representativa', class='w-24 h-24 inline-block ml-4')
+
+
+
+    main.container.mx-auto.mt-16.px-6.sm.px-8.lg.px-12
+        section.text-center
+            h1.text-2xl.font-semibold.text-black.mb-4 Bienvenido
+            p.text-lg.text-gray.leading-relaxed Aquí encontrarás las herramientas necesarias para gestionar y supervisar todas tus propiedades de manera sencilla, rápida y profesional.
+    footer.bg-gray-800.text-white.py-6.mt-10
+        div.container.mx-auto.text-center
+            p.text-sm.leading-relaxed Todos los derechos reservados © 2024 Propiedades.
+            p.text-sm.leading-relaxed Diseñado con dedicación para ofrecerte la mejor experiencia de gestión inmobiliaria.

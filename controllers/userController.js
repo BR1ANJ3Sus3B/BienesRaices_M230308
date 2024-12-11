@@ -78,7 +78,7 @@ const authenticate = async (req, res) => {
         // Almacenar el token en una cookie
         return res.cookie('_token', token, {
             httpOnly: true,
-        }).redirect('/myproperties');
+        }).redirect('/properties/myProperties');
     } catch (error) {
         console.error(error);
         return res.status(500).render('auth/login', {
@@ -264,7 +264,7 @@ const newPassword= async(req,res)=>{
         .notEmpty().withMessage('La contraseña es un campo obligatorio')
         .isLength({ min: 8 }).withMessage('El Password debe ser de al menos 8 caracteres')
         .run(req);
-        await check('confirm_new_password')
+    await check('confirm_new_password')
         .equals(req.body.confirm_new_password).withMessage('La contraseña debe coincidir con la anterior')
         .run(req);
 
@@ -290,11 +290,12 @@ const newPassword= async(req,res)=>{
 
     await user.save();
 
-    res.render('auth/confirmAccount',{
+    res.render('auth/ConfirmAccount',{
         page: 'Password Reestablecido',
         msg:'El password se Guardó correctamente '
     })
 }
+
 
 export {
     formularioLogin,
